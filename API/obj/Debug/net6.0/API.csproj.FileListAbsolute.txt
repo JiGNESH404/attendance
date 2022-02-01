@@ -51,3 +51,10 @@ C:\Users\DELL\Desktop\DotNet\attend\API\obj\Debug\net6.0\API.pdb
 C:\Users\DELL\Desktop\DotNet\attend\API\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\DELL\Desktop\DotNet\attend\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
