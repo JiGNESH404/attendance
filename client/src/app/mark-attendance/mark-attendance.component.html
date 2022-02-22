@@ -1,0 +1,28 @@
+<div class="container" >
+    <form #class="ngForm" (ngSubmit)="onClassSubmit(class)">
+    <div class="row justify-content-evenly">
+        <div class="col-4">
+            <!-- <label for="class">Select Class</label> -->
+            <select required ngModel class="form-control" name="studentClass">
+                <option value="">Select Class</option>
+                <option *ngFor="let class of classes" value="{{class.id}}">{{class.className | uppercase}}</option>
+                
+            </select>
+
+        </div>
+        <div class="col-4">
+            <button class="form-control" [disabled]="!class.valid" type="submit" class="btn btn-outline-success">Load</button>
+            &nbsp; &nbsp;
+            <!-- <button class="form-control" (click)="onReset()" class="btn btn-outline-danger">Clear</button> -->
+        </div>
+        <div class="col-4">
+            
+        </div>
+        
+    </div>
+</form>
+</div>
+<hr>
+<ng-container *ngIf="classSelected">
+    <app-list [classId]='SelectedClassID'></app-list>
+</ng-container>

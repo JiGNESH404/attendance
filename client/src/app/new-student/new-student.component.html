@@ -1,0 +1,23 @@
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add New Student</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form (ngSubmit)="onSubmit()" #newStudent="ngForm">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Student Name</label>
+    <input [(ngModel)]="model.studentName" type="text" class="form-control" name="studentName" required id="studentName" >
+    </div>
+
+  <div class="mb-3">
+    <label for="className" class="form-label">Student Class</label>
+   <select required [(ngModel)]="model.classId" class="form-control" name="classId">
+     <option *ngFor="let class of classes" value={{class.id}} >{{class.className}}</option>
+     
+   </select>
+  </div>
+  <button [disabled]="!newStudent.valid" type="submit" class="btn btn-outline-success">Submit</button>
+</form>
+</div>

@@ -46,7 +46,12 @@ namespace API.Data.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("studentClassId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("studentClassId");
 
                     b.ToTable("Users");
                 });
@@ -57,7 +62,13 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("attendDate")
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SudentClassId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("attendDate")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("attendanceStatus")
@@ -65,7 +76,45 @@ namespace API.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AppUserId");
+
                     b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("API.Entity.studentClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("className")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("studentClass");
+                });
+
+            modelBuilder.Entity("API.Entity.AppUser", b =>
+                {
+                    b.HasOne("API.Entity.studentClass", "studentClass")
+                        .WithMany()
+                        .HasForeignKey("studentClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("studentClass");
+                });
+
+            modelBuilder.Entity("API.Entity.Attendance", b =>
+                {
+                    b.HasOne("API.Entity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
                 });
 #pragma warning restore 612, 618
         }

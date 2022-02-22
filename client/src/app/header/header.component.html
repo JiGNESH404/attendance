@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><span style="color: slateblue"> Attendance </span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" routerLinkActive="active" style="cursor: pointer">
+          <a class="nav-link" routerLink="/classes">Classes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" style="cursor: pointer">
+          <a class="nav-link" routerLink="/markattendance">Mark Attendance</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" style="cursor: pointer">
+          <a class="nav-link" routerLink="/students">StudentList</a>
+        </li>
+      </ul>
+      <form class="d-flex" *ngIf="!(currentUser | async)" #signinform="ngForm" (ngSubmit)="signin()">
+        <input name="username" style="margin-right: 2px" type="text" placeholder="Username" [(ngModel)]="model.username"
+          class="form-control me-2" />
+        <input [(ngModel)]="model.password" name="password" class="form-control me-2" type="password"
+          placeholder="Password" />
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+      <button *ngIf="currentUser | async" (click)="logout()" class="btn btn-outline-danger" type="submit">
+        Logout
+      </button>
+    </div>
+  </div>
+</nav>

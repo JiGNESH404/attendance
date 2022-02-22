@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Add Class</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  <form (ngSubmit)="onSubmit()" #newClass="ngForm">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Class Name</label>
+    <input [(ngModel)]="model.className" type="text" class="form-control" name="studentName" required id="studentName" >
+    </div>
+  <button [disabled]="!newClass.valid" type="submit" class="btn btn-outline-success">Submit</button>
+</form>
+</div>

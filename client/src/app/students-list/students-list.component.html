@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button
+      type="button"
+      class="btn btn-outline-secondary float-right"
+      data-bs-toggle="modal"
+      data-bs-target="#myModal"
+      (click)="openNewStudentModal()"
+    >
+      Add Student
+    </button>
+  </div>
+  <hr style="opacity: 15%" />
+  <ol class="list-group list-group-numbered">
+    <li
+      *ngFor="let user of users"
+      class="list-group-item d-flex justify-content-between align-items-start"
+    >
+      <div style="cursor: pointer" class="ms-2 me-auto fw-bold">
+        {{ user.userName }}
+      </div>
+      <span style="cursor: pointer" class="badge bg-primary rounded-pill">
+        {{ user.studentClassId }}</span
+      >
+    </li>
+  </ol>
+</div>
+

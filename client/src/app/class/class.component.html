@@ -1,0 +1,22 @@
+<div class="container">
+<button
+type="button"
+class="btn btn-outline-secondary float-right"
+data-bs-toggle="modal"
+data-bs-target="#myModal"
+style="margin-bottom: 5px;"
+(click)="openNewClassModal()"
+>
+Add Class
+</button>
+</div>
+<div class="col-sm-6" *ngFor="let class of classes">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{class.id}}</h5>
+      <p class="card-text">Class Name : {{class.className | uppercase}}</p>
+      <a [routerLink]="['/markattendance/class/',class.id] " class="btn btn-primary">View Attendance</a>
+    </div>
+  </div>
+</div>
+

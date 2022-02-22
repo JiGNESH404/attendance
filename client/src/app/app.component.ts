@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { User } from './models/user.model';
+import { AccountService } from './services/account.service';
 
 
 @Component({
@@ -9,13 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit
 {
+  showContent : boolean | undefined
   title = 'Attendance';
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private accountService: AccountService){}
 
   users: any
   ngOnInit() {
-      this.getUsers()
+      /* this.getUsers() */
+      this.setCurrentUsers()
   }
 
   getUsers(){
@@ -25,5 +29,10 @@ export class AppComponent implements OnInit
       }, error=>{
         console.log(error)
       })
+  }
+  setCurrentUsers()
+  {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user)
   }
 }
